@@ -1,0 +1,49 @@
+*{
+
+    border: 1px black solid;
+}
+.first_page{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas: 
+
+    ". food_first . . . . . menus_first menus_first menus_first menus_first menus_first"
+    ". . . . . . . . . . . ."
+    ". . titule_first titule_first titule_first . . . . img_first img_first ."
+    ". . titule_first titule_first titule_first . . . . img_first img_first ."
+    ". . texto_first . . . . . . img_first img_first ."
+    ". . boton_first . . . . . . img_first img_first ."
+    ". . . . . . . . . img_first img_first ."
+    ". . . . . . . . . img_first img_first ."
+
+    ;
+}
+
+.item_first_1{
+    grid-area: food_first;
+    background: red;
+}
+.item_first_2{
+    grid-area: menus_first;
+    background: blue;
+}
+.item_first_3{
+    grid-area: titule_first;
+    background: green;
+}
+.item_first_4{
+    grid-area: texto_first;
+    background: purple;
+}
+.item_first_5{
+    grid-area: boton_first;
+    background: yellow;
+}
+.item_first_6{
+    grid-area: img_first;
+    background: pink;
+}
+
