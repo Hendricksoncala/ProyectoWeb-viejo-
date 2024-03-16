@@ -1,49 +1,143 @@
+@import url(variables.css);
 *{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.header{
+    background: var(--color-primario);
 
-    border: 1px black solid;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+.menu_izquierda{
+    font-size: 1.5em;
+    color: var(--color-secundario);
+    display: flex;
+    justify-content: center;
+    padding-left: 10vw
+
+}
+.menu_derecha{
+
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+ 
+    
+    font-size: 1.5em;
+
+}
+.menu_derecha a{
+    color: var(--color-tercero);
+    text-decoration: none;
+
+}
+/* primera pagina visual --------------------------------------------------------------------*/
+.page1{
+
+    width: 100%;
+    height: 93vh;
+    background: var(--color-primario);
 }
 .first_page{
-    display: grid;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    
+    flex-direction:column ;
+}
+
+.text h1{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vw;
+    line-height: 4vw;
+    color: var(--color-secundario);
+    font-size: 5em;
+    line-height: 6vw;
+    letter-spacing: 0.5vh; 
+}
+.text h2{
+    color: var(--color-tercero);
+    font-size: 2em
+    
+}
+button{
+    margin-top: 2vw;
+    height: 3vw;
+    width: 10vw;
+    font-size: 1.2em;
+    background: var(--color-secundario);
+    color: var(--color-tercero);
+    
+    
+}
+.burger img{
+    width: 60vh; /* Define el ancho deseado */
+    height: auto; 
+}
+/*second---------------------------------------------------------------------*/
+.page2{
+
     width: 100%;
-    height: 100vh;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    grid-template-areas: 
-
-    ". food_first . . . . . menus_first menus_first menus_first menus_first menus_first"
-    ". . . . . . . . . . . ."
-    ". . titule_first titule_first titule_first . . . . img_first img_first ."
-    ". . titule_first titule_first titule_first . . . . img_first img_first ."
-    ". . texto_first . . . . . . img_first img_first ."
-    ". . boton_first . . . . . . img_first img_first ."
-    ". . . . . . . . . img_first img_first ."
-    ". . . . . . . . . img_first img_first ."
-
-    ;
+    height: 93vh;
+    background: var(--color-primario);
+}
+.second_page{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    
+    flex-direction:column ;
 }
 
-.item_first_1{
-    grid-area: food_first;
-    background: red;
+.text h1{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vw;
+    line-height: 4vw;
+    color: var(--color-tercero);
+    font-size: 3em;
+    line-height: 6vw;
+    letter-spacing: 0.5vh; 
 }
-.item_first_2{
-    grid-area: menus_first;
-    background: blue;
+.text h2{
+    color: var(--color-tercero);
+    font-size: 1em
+    
 }
-.item_first_3{
-    grid-area: titule_first;
-    background: green;
+.text h3{
+    color: var(--color-secundario);
+    font-size: 1.4em
+    
 }
-.item_first_4{
-    grid-area: texto_first;
-    background: purple;
+button{
+    margin-top: 2vw;
+    height: 3vw;
+    width: 10vw;
+    font-size: 1.2em;
+    background: var(--color-secundario);
+    color: var(--color-tercero);
+    
+    
 }
-.item_first_5{
-    grid-area: boton_first;
-    background: yellow;
+.burger img{
+    width: 60vh; /* Define el ancho deseado */
+    height: auto; 
 }
-.item_first_6{
-    grid-area: img_first;
-    background: pink;
-}
-
