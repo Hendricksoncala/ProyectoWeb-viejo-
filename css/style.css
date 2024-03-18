@@ -64,7 +64,7 @@
     margin-top: 5vw;
     line-height: 4vw;
     color: var(--color-secundario);
-    font-size: 5em;
+    font-size: 6em;
     line-height: 6vw;
     letter-spacing: 0.5vh; 
 }
@@ -100,33 +100,30 @@ button{
     margin: auto;
     justify-content: space-evenly;
 }
-.text{
+.text2{
     display: flex;
     justify-content: center;
-    
     flex-direction:column ;
+    width: 35vw;
+    
 }
 
-.text h1{
+.text2 h1{
     display: flex;
     flex-direction: column;
-    margin-top: 5vw;
+    margin-top: 1vw;
     line-height: 4vw;
     color: var(--color-tercero);
-    font-size: 3em;
-    line-height: 6vw;
+    font-size: 5em;
+    font-weight: 500;
     letter-spacing: 0.5vh; 
 }
-.text h2{
-    color: var(--color-tercero);
+.text2 h3{
+    color: var(--color-secundario);
     font-size: 1em
     
 }
-.text h3{
-    color: var(--color-secundario);
-    font-size: 1.4em
-    
-}
+
 button{
     margin-top: 2vw;
     height: 3vw;
@@ -136,8 +133,10 @@ button{
     color: var(--color-tercero);
     
     
+    
 }
-.burger img{
+.burrito img{
     width: 60vh; /* Define el ancho deseado */
     height: auto; 
 }
+
