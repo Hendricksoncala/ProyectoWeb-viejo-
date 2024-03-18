@@ -547,7 +547,6 @@ button{
     }
     .second_page{
         width: 100%;
-        
         display: flex;
         margin: auto;
         flex-direction: column-reverse;
@@ -559,25 +558,40 @@ button{
         justify-content: center;
         flex-direction:column ;
         align-items: center;
+        width: 5em;
     }
     
     .text2 h1{
         display: flex;
         flex-direction: column;
         margin-top: 1em;
-        color: var(--color-naranja);
-        font-size: 3em;
+        color: var(--color-blanco);
+        font-size: 2.9em;
         line-height: 1em;
-        
+        font-weight:10px;
+        width: 13em;
 
         
     }
     .text2 h2{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5em;
         color: var(--color-blanco);
-        font-size: 2.5em;
+        font-size: 1.8em;
+        line-height: 1.2em;
+        width: 19em;
         font-weight:bold;
-        
+
     }
+    .text2 h3{
+        display: flex;
+        font-size: 2em;
+        font-weight:bolder;
+        line-height: 1.2em;
+        width: 5em;
+    }
+
     .text2 button{
         margin-top: 6vw;
         height: 2.5em;
@@ -629,9 +643,11 @@ button{
         align-items: center;
     }
     .text3 h3{
-        /*amarillo*/
-        color: var(--color-naranja);
-        font-size: 1vw;
+        display: flex;
+        font-size: 2em;
+        font-weight:bolder;
+        line-height: 1.2em;
+        width: 5em;
     }
     .text3 h1{
         /*blanca*/
