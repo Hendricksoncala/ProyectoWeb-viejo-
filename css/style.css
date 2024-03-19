@@ -16,8 +16,16 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    gap:1rem
 
 }
+.abrir-menu{
+    display: none;
+}
+.cerrar-menu{
+    display: none;
+}
+
 .menu_icono{
     display: none;
 }
@@ -473,7 +481,6 @@ button{
     }
     
     .header{
-        background: green;
         width: 100%;
         height: 4em;
         display: flex;
@@ -483,54 +490,57 @@ button{
     }
 
 
-
-    .abrir_menu{
-        display: block;
-    }
-    .cerrar_menu{
-
-    }
-    .menu_derecha /*nav-list*/{
-        display: none;
-        display: flex;
-        gap:1rem;
-        flex-direction: column;
-        align-items: center;
-    }
-    .menu_derecha a{
-        text-decoration: none;
-        color: var(--color-blanco);
-    }
     .nav{
-        display: none;
         opacity: 0;
         visibility: hidden;
 
-    }
-    .nav{
         position: absolute;
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        top:0;
+        top: 0;
         right: 0;
-        background-color: var(--color-naranja);
-
+        bottom: 10;
+        background-color: red;
+        padding: 2rem;
+        width: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
 
     }
-    .nav_visible{
+    .nav.visible{
         opacity: 1;
         visibility: visible;
-
     }
 
+    .menu_derecha{
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        align-items: center;
+    }
 
-
-
-    .menu_icono{
+    .cerrar-menu,
+    .abrir-menu{
         display: block;
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+        cursor: pointer;
+        
+    }
+    .abrir-menu{
+        color: var(--color-beish);
+    }
+    .cerrar-menu{
+        color:
     }
 
+
+
+
+
+/*---------------------------------------------------*/
 
     .page1{
         display: flex;
