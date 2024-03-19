@@ -18,6 +18,10 @@
     position: fixed;
 
 }
+.menu_icono{
+    display: none;
+}
+
 .menu_izquierda{
     font-size: 1.5em;
     color: var(--color-naranja);
@@ -31,8 +35,6 @@
     display: flex;
     width: 30%;
     justify-content: space-evenly;
- 
-    
     font-size: 1.5em;
 
 }
@@ -113,7 +115,8 @@ button{
     display: flex;
     justify-content: center;
     flex-direction:column ;
-    width: 35vw;
+    width: 50em;
+    padding-left: 3em;
     
 }
 
@@ -121,11 +124,11 @@ button{
     display: flex;
     flex-direction: column;
     margin-top: 1vw;
-    line-height: 4vw;
+    line-height: 5vw;
     color: var(--color-blanco);
-    font-size: 5em;
+    font-size: 4.5em;
     font-weight: 500;
-    letter-spacing: 0.5vh; 
+    letter-spacing: 0.1vh; 
 }
 .text2 h3{
     color: var(--color-naranja);
@@ -468,15 +471,64 @@ button{
         text-align: center;
         margin: none;
     }
-
+    
     .header{
-        background: var(--color-azuloscuro);
+        background: green;
         width: 100%;
         height: 4em;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: fixed;
+    }
+
+
+
+    .abrir_menu{
+        display: block;
+    }
+    .cerrar_menu{
+
+    }
+    .menu_derecha /*nav-list*/{
+        display: none;
+        display: flex;
+        gap:1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu_derecha a{
+        text-decoration: none;
+        color: var(--color-blanco);
+    }
+    .nav{
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+
+    }
+    .nav{
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        top:0;
+        right: 0;
+        background-color: var(--color-naranja);
+
+
+    }
+    .nav_visible{
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+
+
+
+    .menu_icono{
+        display: block;
     }
 
 
@@ -533,7 +585,7 @@ button{
         
     }
     .burger img{
-        width: 50vh; /* Define el ancho deseado */
+        width: 40vh; /* Define el ancho deseado */
         height: auto;
         margin-top: 2vw; 
     }
@@ -608,7 +660,7 @@ button{
         
     }
     .burrito img{
-        width: 50vh; /* Define el ancho deseado */
+        width: 40vh; /* Define el ancho deseado */
         height: auto;
         margin-top: 2vw; 
     }
@@ -772,7 +824,7 @@ button{
     .text4 h3{
         /*amarillo*/
         color: var(--color-naranja);
-        font-size: 4vw;
+        font-size: 5vw;
     }
     .text4 h1{
         /*blanca*/
@@ -876,7 +928,7 @@ button{
     .page6{
         display: flex;
         width: 100%;
-        height: 100vh;
+        height: 130vh;
         background: var(--color-azuloscuro);
         flex-direction: column;
     }
@@ -897,33 +949,32 @@ button{
         flex-direction: column;
     
     }
+
     .menu_links{
-        display: flex;
-        flex-direction:column ;
+        
         text-align: left;
+        font-size: 2em;
+
         
     }
     .menu_links a{
         text-decoration: none;
-        padding-top:2vh ;
         color: var(--color-blanco);
-        
-        
+         
     }
     .sexta_pagina h2{
         border-bottom: 1px solid  var(--color-naranja);
     }
     
-    
-    
     .our_service{
         display: flex;
         flex-direction:column ;
         text-align: left;
+        font-size: 2em;
+        margin-top: 2em;
     }
     .our_service a{
         text-decoration: none;
-        padding-top:2vh ;
         color: var(--color-blanco);
     }
     
@@ -931,20 +982,23 @@ button{
         display: flex;
         flex-direction:column ;
         text-align: left;
+        font-size: 2em;
+        margin-top: 2em;
     }
     .information a{
         text-decoration: none;
-        padding-top: 2vh;
         color: var(--color-blanco);
     }
     
     .contact_us{
-        font-size: 1vw;
+        font-size: 2em;
+        margin-top: 2em;
         
         
     }
     .contact_us a i{
-        padding-top: 2vw ;
+        
+        font-size: 2em;
         color:var(--color-naranja) ;
     }
 
