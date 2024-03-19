@@ -11,137 +11,70 @@
 <body>
     <header>
         <div class="titulo">
-
-            <h1>CampusShop</h1>
             <div class="icono">
-                <button onclick="botonMenu()" id="abrir" class="abrir">
-                    <i class='bx bx-menu'></i>
-                </button> 
+                <i class='bx bx-shopping-bag'></i>
             </div>
+            <h1>CampusShop</h1>
+
         </div>
-        <nav class="categorias" id="menu">
-            <ul>
-                <li class="home">
-                    <i class='bx bx-closet'></i>
-                    <a href="index.html">Todos los productos</a>
-                </li>
-                <li>
-                    <img src="storage/img/icons8-fireman-coat-50.png" alt="">
-                    <a href="views/abrigos.html">Abrigos</a>
-                </li>
-                <li>
-                    <img src="storage/img/icons8-polo-shirt-50.png" alt="">
-                    <a href="views/camisetas.html">Camisetas</a>
-                </li>
-                <li>
-                    <img src="storage/img/icons8-pant.png" alt="">
-                    <a href="views/pantalones.html">Pantalones</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="carritos" id="menu">
-            <i class='bx bxs-cart'></i>
-            <a href="views/carritos.html">Carritos</a>
-            <button id="contador">0</button>
-        </nav>
-        <nav class="copy" id="menu">
-            <i class='bx bx-copyright'></i>
-            <a href="#">2023 @Camper</a>
-        </nav>
+        
+
+
     </header>
+
     <main>
         <div class="h1">
-            <h1>Todos los Productos</h1>
+            <h1>Todos los productos</h1>
         </div>
         <div class="main">
-            <div class="item01 c">
-                <img src="storage/img/abrigo01.png" alt="abrigo01">
+            <div class="item01">
+                <img src="storage/img/abrigo01.png">
                 <div class="container">
-                    <p>Chaqueta Impermeable En Gabán Para Dama Azul</p>
+                    <p>abrigo impermeable azul oscuro</p>
                     <div>
-                        <p>$ 1.000</p>
-                        <button onclick="incrementar('contador')">Agregar</button> 
-                    </div> 
+                        $59.99
+                    </div>
+
                 </div>
             </div>
-            <div class="item02 c">
-                <img src="storage/img/abrigo02.png" alt="abrigo02">
+            <div class="item02">
+                <img src="storage/img/abrigo02.png">
                 <div class="container">
-                    <p>Chaqueta Impermeable En Gabán Para Dama 'Negro'</p>
+                    <p>abrigo impermeable vinotinto oscuro</p>
                     <div>
-                        <p>$ 2.000</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
+                        $59.99
                     </div>
+
                 </div>
             </div>
-            <div class="item03 c">
-                <img src="storage/img/abrigo03.png" alt="abrigo03">
+            <div class="item02">
+                <img src="storage/img/abrigo02.png">
                 <div class="container">
-                    <p>Chaqueta Impermeable En Gabán Para Dama 'Blanco'</p>
+                    <p>abrigo impermeable vinotinto oscuro</p>
                     <div>
-                        <p>$ 2.500</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
+                        $59.99
                     </div>
+
                 </div>
             </div>
-            <div class="item04 c">
-                <img src="storage/img/camisa01.png" alt="camisa01">
+            <div class="item02">
+                <img src="storage/img/abrigo02.png">
                 <div class="container">
-                    <p>Camiseta De Compresión En Licra Uv Slim</p>
+                    <p>abrigo impermeable vinotinto oscuro</p>
                     <div>
-                        <p>$ 2.500</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
+                        $59.99
                     </div>
+
                 </div>
             </div>
-            <div class="item05 c">
-                <img src="storage/img/camisa02.png" alt="camisa02">
+            <div class="item02">
+                <img src="storage/img/abrigo02.png">
                 <div class="container">
-                    <p>Camiseta Tipo Polo Color Dama Mujer</p>
+                    <p>abrigo impermeable vinotinto oscuro</p>
                     <div>
-                        <p>$ 2.000</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
+                        $59.99
                     </div>
-                </div>
-            </div>
-            <div class="item06 c">
-                <img src="storage/img/camisa03.png" alt="camisa03">
-                <div class="container">
-                    <p>Camiseta Deportiva, Crossfit, Gym, Ejercicios Al Aire Libre</p>
-                    <div>
-                        <p>$ 2.500</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="item07 c">
-                <img src="storage/img/pantalon01.png" alt="pantalon01">
-                <div class="container">
-                    <p>Pantalon En Dril Licrado Para Hombre</p>
-                    <div>
-                        <p>$ 2.000</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="item08 c">
-                <img src="storage/img/pantalon02.png" alt="pantalon02">
-                <div class="container">
-                    <p>Pantalón Camuflado Hermoso</p>
-                    <div>
-                        <p>$ 2.000</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="item09 c">
-                <img src="storage/img/pantalon03.png" alt="pantalon03">
-                <div class="container">
-                    <p>Pantalón Jogger Cargo, Táctico, Militar</p>
-                    <div>
-                        <p>$ 2.500</p>
-                        <button onclick="incrementar('contador')">Agregar</button>
-                    </div>
+
                 </div>
             </div>
         </div>
