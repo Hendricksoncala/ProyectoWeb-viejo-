@@ -8,6 +8,7 @@
 body{
 
     border: 3px solid black;
+    background: rgba(42, 42, 42, 0.377);
     width: 100%;
     height: 100vh;
     display: grid;
@@ -28,20 +29,59 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-top: 1.5em;
     padding-left: 1.5em;
     
 }
 .copy{
     margin-bottom: 50px;
 }
+.titulo {
+
+}
+header .titulo{
+
+    flex-direction: row;
+    display: flex;
+
+}
+header .icono {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5em;
+}
+
+header .categorias ul{
+    padding-bottom: 1em;
+}
+
 header .categorias li{
     display: flex;
+    padding: 2em;
     
 }
+
+header .categorias li a{
+    color: black;
+    font-size: 20px ;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+}
+
 header .categorias li img{
     width: 2em;
     height: 2em;
 }
+.categorias a{
+    text-decoration: none;
+
+}
+.categorias .home{
+    padding-bottom: 2em;
+}
+
+
 
 
 .todos_los_productos{
@@ -54,23 +94,21 @@ header .categorias li img{
 header .titulo{
     
     margin-top: 1px;
-    background: green;
-    border: 2px solid #09f;
+
     border-radius: 6px;
 }
-.categorias a{
-    text-decoration: none;
 
+main{
+    border: 1px solid black;
+    border-radius: 2em; 
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background: lightgrey;
 }
-.categorias .home{
-    padding-bottom: 2em;
-}
-
 .main{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border: 1px solid black;
-    border-radius: 2em;
+
     height: 80vh;
     overflow: scroll;
     gap: 1em;
@@ -104,7 +142,7 @@ header .titulo{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid blue;
+    
 
 }
 .container {
