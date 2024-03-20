@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier New", Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
+    
 }
 
 body{
@@ -23,6 +24,19 @@ body{
     
 
 }
+.home{
+    background: red;
+    border: 1px solid white;
+    height: 1vw;
+    border-radius: 1em;
+
+
+    
+}
+.home a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
 header{
     width: 100%;
     height: 100vh;
@@ -37,9 +51,8 @@ header{
 .copy{
     margin-bottom: 50px;
 }
-.titulo {
 
-}
+
 header .titulo{
 
     flex-direction: row;
@@ -114,6 +127,9 @@ main{
     overflow: scroll;
     gap: 1em;
     background:#0e687683;
+}
+.main::-webkit-scrollbar{
+    width: 8px;;
 }
 
 .main img{
@@ -245,5 +261,40 @@ main{
     align-items: center;
 
 }
+/*footer de compra de productos*/
+.vaciar_carrito{
+
+    margin: 1vh;
+    border-radius: 1em;
+    margin-left: 2em;
     
+}
+.vaciar_carrito button{
+    color: black;
+    background:white;
+
+} 
+.vaciar_carrito button a{
+    text-decoration:none ;
+}
+.footer_abajo{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.comprar_ahora{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    margin: .5em;
+    margin-right: 2em;
+}
+.comprar_ahora p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 2em;
+
+}
+
 
