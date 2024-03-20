@@ -3,10 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><Canvas>CampusShop</Canvas></title>
     <link rel="stylesheet" href="../css/carritos.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
-    
+    <header>
+        <div class="titulo">
+            <div class="icono">
+                <i class='bx bx-shopping-bag'></i>
+            </div>
+            <h1>CampusShop</h1>
+
+        </div>
+        <nav class="categorias" id="menu">
+            <ul>
+                <li class="home">
+                    <i class='bx bx-closet'></i>
+                    <a href="index.html">Todos los productos</a>
+                </li>
+                <li>
+                    <img src="storage/img/abrigo.png" alt="">
+                    <a href="views/abrigos.html">Abrigos</a>
+                </li>
+                <li>
+                    <img src="storage/img/camisa01.png" alt="">
+                    <a href="views/camisetas.html">Camisetas</a>
+                </li>
+                <li>
+                    <img src="storage/img/pantalon01.png" alt="">
+                    <a href="views/pantalones.html">Pantalones</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="carritos" id="menu">
+            <i class='bx bxs-cart'></i>
+            <a href="views/carritos.html">Carritos</a>
+            <button id="contador">0</button>
+        </nav>
+        <nav class="copy" id="menu">
+            <i class='bx bx-copyright'></i>
+            <a href="#">2023 @Camper</a>
+        </nav>
+        </div>
+        
+
+
+    </header>
+
+    <main>
+        <div class="todos_los_productos">
+            <h1>Todos los productos</h1>
+
+        </div>
+        <div class="main">
+            <div class="item01">
+                <img src="storage/img/abrigo01.png">
+                <div class="container">
+                    <p>Abrigo Azul Oscuro</p>
+                    <div>
+                        $59.99  
+                        <button>agregar</button>
+                        
+                    </div>
+                </div>
+            </div>
+
+    </main>
 </body>
 </html>
