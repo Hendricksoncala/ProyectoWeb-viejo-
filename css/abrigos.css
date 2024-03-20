@@ -11,7 +11,7 @@
 body{
 
     border: 3px solid black;
-    background: rgba(42, 42, 42, 0.377);
+    background:gray;
     width: 100%;
     height: 100vh;
     display: grid;
@@ -52,7 +52,7 @@ header{
     margin-bottom: 50px;
 }
 .titulo {
-
+    color: white;
 }
 header .titulo{
 
@@ -80,7 +80,7 @@ header .categorias li{
 header .categorias li a{
     color: black;
     font-size: 20px ;
-    font-family: "Courier New", Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
 }
 
@@ -118,7 +118,7 @@ main{
     border-radius: 2em; 
     margin-top: 1em;
     margin-bottom: 1em;
-    background: lightgrey;
+    background: white;
 }
 .main{
     display: grid;
@@ -127,7 +127,7 @@ main{
     height: 80vh;
     overflow: scroll;
     gap: 1em;
-    background: lightgrey;
+    background: whitesmoke;
 }
 
 .main img{

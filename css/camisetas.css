@@ -9,7 +9,7 @@
 body{
 
     border: 3px solid black;
-    background: #85a6a0;
+    background:gray;
     width: 100%;
     height: 100vh;
     display: grid;
@@ -50,7 +50,7 @@ header{
     margin-bottom: 50px;
 }
 .titulo {
-
+    color: white;
 }
 header .titulo{
 
@@ -116,7 +116,7 @@ main{
     border-radius: 2em; 
     margin-top: 1em;
     margin-bottom: 1em;
-    background: #0e6876;
+    background: white;
 }
 .main{
     display: grid;
@@ -125,7 +125,7 @@ main{
     height: 80vh;
     overflow: scroll;
     gap: 1em;
-    background:#0e687683;
+    background:whitesmoke;
 }
 
 .main img{
