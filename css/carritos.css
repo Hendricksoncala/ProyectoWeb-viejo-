@@ -44,7 +44,7 @@ header{
     justify-content: space-between;
     padding-top: 1.5em;
     padding-left: 1.5em;
-    color: white;
+    color:black
     
 }
 .copy{
@@ -76,7 +76,7 @@ header .categorias ul{
 header .categorias li{
     display: flex;
     padding: 2em;
-    color: white;
+
     
 }
 header .categorias li a{
@@ -172,6 +172,7 @@ main{
     padding: 1em;
     border: 1px solid black;
     border-radius: 1em;
+    margin: 1em;
 
     
     
@@ -218,6 +219,7 @@ main{
 .container div{
     display: flex;
     justify-content: space-between;
+   
 
 }
 .container div button{
@@ -237,9 +239,8 @@ main{
     padding: 1em;
     border: 1px solid black;
     border-radius: 1em;
+    margin: 1em;
     
-    
-
 }
 
 .item03{
@@ -251,9 +252,7 @@ main{
     padding: 1em;
     border: 1px solid black;
     border-radius: 1em;
-    
-    
-
+    margin: 1em;
 }
 
 
