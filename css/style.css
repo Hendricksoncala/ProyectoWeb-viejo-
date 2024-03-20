@@ -74,17 +74,19 @@ header .titulo{
     height: 80vh;
     overflow: scroll;
     gap: 1em;
+    background: lightgrey;
 }
 
 .main img{
     width: 15em;
     height: 15em;
-    border: 1px solid red;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 10px ;
     border-bottom: 0em;
+    
     
 }
 .main .container{
@@ -95,6 +97,7 @@ header .titulo{
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
+    background: lightblue;
 }
 .item01{
     display: flex;
@@ -104,6 +107,27 @@ header .titulo{
     border: 3px solid blue;
 
 }
+.container {
+    display: flex;
+
+    justify-content: end;
+    
+    padding: 1em;
+    gap: 1em;
+}
+.container div{
+    display: flex;
+    justify-content: space-between;
+
+}
+.container div button{
+    border-radius: 0.5em;
+    border: 0;
+    padding: 0.3em;
+    cursor: pointer;
+}
+
+
 .item02{
     display: flex;
     flex-direction: column;
