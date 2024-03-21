@@ -425,3 +425,13 @@ main{
     align-items: center;
     flex-direction: column;
 }
+.carritos > a{
+    color: black;
+    text-decoration: none;
+    
+
+}
+.copy > a{
+    color: black;
+    text-decoration: none;
+}
