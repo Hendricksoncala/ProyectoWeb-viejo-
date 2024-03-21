@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><Canvas>CampusShop</Canvas></title>
-    <link rel="stylesheet" href="../css/abrigos.css">
+    <link rel="stylesheet" href="../css/carritos.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="js/main.js"></script>
 </head>
@@ -23,7 +23,7 @@
                     <i class='bx bx-closet'></i>
                     <a href="../index.html">Todos los productos</a>
                 </li>
-                <li class="abrigo_menu">
+                <li>
                     <img src="/storage/img/abrigo_icono.png" alt="">
                     <a href="abrigos.html">Abrigos</a>
                 </li>
@@ -54,50 +54,56 @@
 
     <main>
         <div class="todos_los_productos">
-            <h1>Abrigos</h1>
+            <h1>Todos los productos</h1>
 
         </div>
+        
         <div class="main">
+        
             <div class="item01">
-                <img src="../storage/img/abrigo01.png">
+                <img src="/storage/img/abrigo01.png">
                 <div class="container">
-                    <p>Abrigo Gris</p>
-                    <div>
-                        $59.99  
-                        <button>agregar</button>
-                        
+                    <div class="nombre_prenda">
+                        <p>Nombre</p>
+                        <p>Abrigo  Gris</p>
                     </div>
-                </div>
-            </div>
-            <div class="item02">
-                <img src="../storage/img/abrigo02.png">
-                <div class="container">
-                    <p>Abrigo Negro</p>
-                    <div>
-                        $59.99  
-                        <button>agregar</button>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="item03">
-                <img src="../storage/img/abrigo03.png">
-                <div class="container">
-                    <p>Abrigo Rey Nordico</p>
-                    <div>
-                        $99.99  
-                        <button>agregar</button>
-                        
-                    </div>
-                </div>
-            </div>
-            
+                    <div class="cantidad">
+                        <p>Cantidad</p>
+                        <p class="cuadro">2</p>
 
-                        
                     </div>
+                    <div class="precio">
+                        <p>Precio</p>
+                        <p>$59.99</p>
+                    </div>
+                    <div class="sub_total">
+                        <p>Subtotal</p>
+                        <p>$119.98</p>
+                    </div>
+                    <div class="agregar_carrito">
+                        <button><a href="llenar.html">Comprar</a></button>
+                    </div>
+
                 </div>
             </div>
+
+            <section class="footer_abajo">
+                <div class="vaciar_carrito">
+                    <button><a href="vaciar.html">Vaciar Carrito</a></button>
+                </div>
+                <div class="comprar_ahora">
+                    <div>                    
+                        <p>Total</p>
+                        <p>$119.98</p>
+                    </div>
+
+                    <button>Comprar ahora</button>
+                </div>
+            </section>
+            
+        </div>
             
     </main>
+
 </body>
 </html>

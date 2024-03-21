@@ -417,11 +417,3 @@ main{
 .container div{
     gap: 2em
 }
-
-/*PARTE DE CARRITO ESSTA VACIO*/
-.main_vacio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
