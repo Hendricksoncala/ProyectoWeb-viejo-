@@ -488,22 +488,24 @@ button{
     /*menu deslegable-------------------------------------------------*/
     .header > button {
         font-size: 5vh;
-        height: 100%;
+        height: 50%;
         margin: 0;
         padding: 0;
         display: block;
+
+        
     }
     .menu_derecha {
         position: absolute;
         top: 80px;
-        background: white;
+        background: var(--color-menu);
         width: 100%;
         height: 50vh;
         display: flex;
         flex-direction: column;
     }
     .menu_derecha > a {
-        color: black;
+        color: var(--color-blanco);
     }
     .visible {
         display: none;
@@ -646,7 +648,7 @@ button{
     .page3{
        display: flex;
         width: 100%;
-        height: 200vh;
+        height: 250vh;
         background: var(--color-azuloscuro);
     }
     
@@ -773,7 +775,7 @@ button{
     .page4{
         display: flex;
         width: 100%;
-        height: 200vh;
+        height: 250vh;
         background: var(--color-azuloscuro);
     }
     
@@ -905,7 +907,7 @@ button{
     .page6{
         display: flex;
         width: 100%;
-        height: 100vh;
+        height: 130vh;
         background: var(--color-azuloscuro);
         flex-direction: column;
     }
@@ -917,6 +919,7 @@ button{
         align-items: center;
         flex-direction: column;
         margin: none;
+        
     
     }
     .container{
@@ -930,6 +933,8 @@ button{
         display: flex;
         flex-direction:column ;
         text-align: left;
+        font-size: 2em;
+        margin-bottom: 1em;
         
     }
     .menu_links a{
@@ -949,6 +954,8 @@ button{
         display: flex;
         flex-direction:column ;
         text-align: left;
+        font-size: 2em;
+        margin-bottom: 1em;
     }
     .our_service a{
         text-decoration: none;
@@ -960,6 +967,8 @@ button{
         display: flex;
         flex-direction:column ;
         text-align: left;
+        font-size: 2em;
+        margin-bottom: 1em;
     }
     .information a{
         text-decoration: none;
@@ -969,10 +978,12 @@ button{
     
     .contact_us{
         font-size: 1vw;
+        font-size: 2em;
         
         
     }
     .contact_us a i{
+        
         padding-top: 2vw ;
         color:var(--color-naranja) ;
     }
