@@ -8,7 +8,7 @@
 
 body{
 
-    border: 3px solid black;
+
     background:gray;
 
     width: 100%;
@@ -28,7 +28,7 @@ body{
     width: 8px;;
 }
 .pantalones_menu{
-    background: red;
+    background:#f5f5f588;
     border: 1px solid white;
     height: 1vw;
     border-radius: 1em;
@@ -112,7 +112,7 @@ header .titulo{
 }
 
 main{
-    border: 1px solid black;
+
     border-radius: 2em; 
     margin-top: 1em;
     margin-bottom: 1em;
@@ -125,7 +125,7 @@ main{
     height: 80vh;
     overflow: scroll;
     gap: 1em;
-    background:whitesmoke;
+    background:white;
 }
 
 .main img{
