@@ -302,7 +302,7 @@ main{
     color: black;
     text-decoration: none;
 }
-@media (width <= 700px){
+@media (width < 700px){
     body{
         font-size: 20px;
         text-align: center;
@@ -311,7 +311,7 @@ main{
         justify-content: space-around;
         flex-direction: column;
     }
-}       
+      
     .todos_los_productos{
         font-size: 12px;
     }
@@ -331,13 +331,10 @@ main{
         display: flex;
         flex-direction: row;
     }
-
     .main{
-    
         display: flex;
         flex-direction: column;
         width: 100%;
-        
-
+    
     }
-
+    } 
