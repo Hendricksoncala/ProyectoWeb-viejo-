@@ -1,4 +1,5 @@
 import { LitElement, css, html } from 'lit'
+// import {loadlink} from "/src/charge_info.js"
 
 export class MyElement extends LitElement {
   static get properties() {
@@ -55,6 +56,7 @@ export class MyElement extends LitElement {
                 </ul>
             </nav>
             <footer>
+                <p>${this.loadlink}</p>
                 <p class="texto-footer">© 2022 Carpi Coder</p>
             </footer>
         </aside>
