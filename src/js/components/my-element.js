@@ -447,7 +447,7 @@ export class MyElement extends LitElement {
             <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
             <div id="contenedor-productos" class="contenedor-productos">
                 <!-- Esto se va a rellenar con JS -->
-                
+
             </div>
         </main>
     </div>
@@ -458,5 +458,7 @@ export class MyElement extends LitElement {
         this.count++
     }
 
+    
 }
 
+window.customElements.define('my-element', MyElement)
