@@ -1,4 +1,5 @@
 import { LitElement, css, html } from 'lit'
+
 export class MyElement extends LitElement {
   static get properties() {
     return {
@@ -14,6 +15,7 @@ export class MyElement extends LitElement {
     this.docsHint = 'Click on the Vite and Lit logos to learn more'
     this.count = 0
   }
+  
 
   render() {
     return html`
@@ -72,7 +74,7 @@ export class MyElement extends LitElement {
 
   static get styles() {
     return css`
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 :root {
     --clr-main: #4b33a8;
     --clr-main-light: #785ce9;
