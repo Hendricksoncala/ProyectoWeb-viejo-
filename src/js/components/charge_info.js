@@ -27,16 +27,15 @@ export class MyElement extends LitElement {
   render() {
     return html`
  
-    // <div class="pants_block">
-    //     <div class="block_titule">
-    //         <div>${this.img_pants}</div>
-    //     </div>
-    //     <div class="block_product">
-    //         <div class="">
-            
-    //         </div>
-    //     </div>
-    // </div>
+    <div class="cajita">
+        <img src="camisa.png" alt="Imagen del producto">
+        <div class="info">
+            <h2>Título del producto</h2>
+            <p>Precio: $19.99</p>
+        </div>
+        <button class="boton">Comprar</button>
+  </div>
+
     `;
   }
 }

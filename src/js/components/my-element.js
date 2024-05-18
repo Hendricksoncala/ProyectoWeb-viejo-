@@ -447,7 +447,7 @@ export class MyElement extends LitElement {
             <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
             <div id="contenedor-productos" class="contenedor-productos">
                 <!-- Esto se va a rellenar con JS -->
-
+                <my-products .category="${this.selectedCategory}"></my-products>
             </div>
         </main>
     </div>
@@ -462,3 +462,130 @@ export class MyElement extends LitElement {
 }
 
 window.customElements.define('my-element', MyElement)
+
+
+/*SEGUNDA PARTE CREACION DEL WEBCOMPONENT------------------------------------------------------------------------------*/
+export class MyProducts extends LitElement {
+    static properties = {
+      products: { type: Array },
+      category: { type: String }
+    }
+  
+    constructor() {
+      super();
+      this.products = []
+      this.category = 'all';
+    } 
+  
+    updated(changedProperties) {
+      if (changedProperties.has('category')) {
+        this.loadProducts();
+      }
+    }
+  
+    async loadProducts() {
+      switch (this.category) {
+        case 'coats':
+          this.products = await getAllcoats();
+          break;
+        case 'shirts':
+          this.products = await getAllShirts();
+          break;
+        case 'jeans':
+          this.products = await getAllJeans();
+          break;
+        default:
+          this.products = await getAllProducts();
+      }
+    }
+  
+    render() {
+      return html`
+      <div class="products_container">
+      ${Array.isArray(this.products) && this.products.length > 0 ?
+        this.products.map(product => html`
+          <div class="coats">
+            <img class="product_img" src="${product.imagen}"/>
+              <div class="full_description">
+                <h3 class="product_title">${product.nombre}</h3>
+                <p class="product_price">$${product.precio}</p>
+                <button class="product_add">Add</button>
+              </div>
+          </div>  
+        `)
+        : html`<p>No products found</p>`
+      }
+      </div>
+      `;
+    }
+  
+    
+    static get styles() {
+      return css`
+      @import url(variables.css);
+        .products_container{
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1rem;
+          align-items: center;
+        }
+  
+        .coats{
+          width: 200px;
+          margin: 1em;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .coats .product_img{
+          width: 100%;
+          height: 200px;
+          border-radius: 1rem;
+        }
+  
+        .full_description{
+          background-color: var(--clr-main);
+          color: var(--clr-white);
+          border-radius: 1rem;
+          margin-top: -2rem;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+  
+        .full_description .product_title{
+          margin-left: 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          margin-right: 10px;
+          font-size: .8rem;
+        }
+  
+        .full_description .product_price{
+          margin-left: 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          font-size: .9rem;
+        }
+        
+  
+        .product_add{
+          background-color: var(--clr-white);
+          color: var(--clr-main);
+          padding: .4rem;
+          text-transform: uppercase;
+          border-radius: 2rem;
+          cursor: pointer;
+          border: 2px solid var(--clr-white);
+          transition: background-color .2s, color .2s;
+        }
+  
+        .product_add:hover{
+          background-color: var(--clr-main);
+          color: var(--clr-white);
+        }
+      `
+    }
+  }
+  customElements.define('my-products', MyProducts);
