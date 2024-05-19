@@ -1,5 +1,12 @@
 import { LitElement, css, html } from 'lit'
 // import {loadlink} from "/src/charge_info.js"
+import { getAllJacket,
+     getAllTshirt, 
+     getAllPants, 
+     getAllProducts,
+     getAllTrolley } 
+     
+     from './modules/products.js';
 
 export class MyElement extends LitElement {
     constructor() {
@@ -486,13 +493,13 @@ export class MyProducts extends LitElement {
     async loadProducts() {
       switch (this.category) {
         case 'coats':
-          this.products = await getAllcoats();
+          this.products = await getAllJacket();
           break;
         case 'shirts':
-          this.products = await getAllShirts();
+          this.products = await getAllTshirt();
           break;
         case 'jeans':
-          this.products = await getAllJeans();
+          this.products = await getAllPants();
           break;
         default:
           this.products = await getAllProducts();

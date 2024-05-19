@@ -3,24 +3,16 @@
 
 // } from "./components/my-element.js"
 
-import {
-    getAllPants
-} from "./modules/pants.js"
 
-import {
-    getAllJacket
-} from "./modules/jacket.js"
+// import { MyElement } from "./components/my-element.js"
+// import { getAllJacket,
+//     getAllTshirt, 
+//     getAllPants, 
+//     getAllProducts,
+//     getAllTrolley } 
+    
+//     from 
 
-import {
-    getAllTshirt
-} from "./modules/tshirt.js"
-
-import { MyElement } from "./components/my-element.js"
-
-
-console.log(await getAllJacket())
-console.log(await getAllTshirt())
-console.log(await getAllPants())
 
 
 window.addEventListener('load', () => {
