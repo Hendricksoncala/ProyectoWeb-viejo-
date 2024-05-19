@@ -6,7 +6,7 @@ import { getAllJacket,
      getAllProducts,
      getAllTrolley } 
      
-     from './modules/products.js';
+     from '../modules/products.js';
 
 export class MyElement extends LitElement {
     constructor() {
@@ -14,7 +14,15 @@ export class MyElement extends LitElement {
 
         this.count = 0
     }
-    
+    handleButtonClick(e) {
+        const botones = this.shadowRoot.querySelectorAll('.boton-categoria');
+        botones.forEach(boton => {
+            if (boton !== e.currentTarget) {
+                boton.classList.remove('active');
+            }
+        });
+        e.currentTarget.classList.add('active');
+    }
     
     static styles = css`
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
@@ -160,11 +168,7 @@ export class MyElement extends LitElement {
             margin-bottom: 2rem;
         }
 
-        .contenedor-productos {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
+
 
         .producto-imagen {
             max-width: 100%;
@@ -427,16 +431,16 @@ export class MyElement extends LitElement {
             <nav>
                 <ul class="menu">
                     <li>
-                        <button id="todos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
+                        <button id="todos" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
                     </li>
                     <li>
-                        <button id="abrigos" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
+                        <button id="abrigos"  class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
                     </li>
                     <li>
-                        <button id="camisetas" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
+                        <button id="camisetas" class="boton-menu boton-categoria " @click=${this.handleButtonClick} ><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
                     </li>
                     <li>
-                        <button id="pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
+                        <button id="pantalones" class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
                     </li>
                     <li>
                         <a class="boton-menu boton-carrito" href="./carrito.html">
@@ -507,16 +511,17 @@ export class MyProducts extends LitElement {
       <div class="products_container">
       ${Array.isArray(this.products) && this.products.length > 0 ?
         this.products.map(product => html`
-          <div class="coats">
-            <img class="product_img" src="${product.imagen}"/>
-              <div class="full_description">
-                <h3 class="product_title">${product.nombre}</h3>
-                <p class="product_price">$${product.precio}</p>
-                <button class="product_add">Add</button>
+          <div class="producto">
+            <img class="producto_img" src="${product.imagen}"/>
+              <div class="producto_detalles">
+                <h3 class="producto_titulo">${product.nombre}</h3>
+                <p class="producto_precio">$${product.precio}</p>
+                <button class="product_add">Comprar</button>
               </div>
           </div>  
         `)
-        : html`<p>No products found</p>`f
+        : html`<p>No products found</p>`
+      }
       </div>
       `;
     }
@@ -527,12 +532,12 @@ export class MyProducts extends LitElement {
       @import url(variables.css);
         .products_container{
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(4,41fr);
           gap: 1rem;
           align-items: center;
         }
   
-        .coats{
+        .producto{
           width: 200px;
           margin: 1em;
           display: flex;
@@ -540,13 +545,13 @@ export class MyProducts extends LitElement {
           align-items: center;
         }
         
-        .coats .product_img{
+        .producto .producto_img{
           width: 100%;
           height: 200px;
           border-radius: 1rem;
         }
   
-        .full_description{
+        .producto_detalles{
           background-color: var(--clr-main);
           color: var(--clr-white);
           border-radius: 1rem;
@@ -556,7 +561,7 @@ export class MyProducts extends LitElement {
           flex-direction: column;
         }
   
-        .full_description .product_title{
+        .producto_detalles .producto_titulo{
           margin-left: 10px;
           margin-top: 5px;
           margin-bottom: 5px;
@@ -564,7 +569,7 @@ export class MyProducts extends LitElement {
           font-size: .8rem;
         }
   
-        .full_description .product_price{
+        .producto_detalles .producto_precio{
           margin-left: 10px;
           margin-top: 5px;
           margin-bottom: 5px;
