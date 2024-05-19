@@ -461,11 +461,7 @@ export class MyElement extends LitElement {
     `
     }
 
-    _onClick() {
-        this.count++
-    }
 
-    
 }
 
 window.customElements.define('my-element', MyElement)
@@ -520,8 +516,7 @@ export class MyProducts extends LitElement {
               </div>
           </div>  
         `)
-        : html`<p>No products found</p>`
-      }
+        : html`<p>No products found</p>`f
       </div>
       `;
     }

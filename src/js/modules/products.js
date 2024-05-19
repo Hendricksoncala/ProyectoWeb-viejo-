@@ -21,6 +21,7 @@ export const getAllPants = async () => {
 
 export const getAllProducts = async () => {
     let res = await fetch("http://localhost:3000")
+    
     let data = await  res.json();
     return data;
 }
@@ -30,4 +31,7 @@ export const getAllTrolley = async () => {
     let data = await  res.json();
     return data;
 }
+
+
+
 /*OTRA FORMA DE PODER HACER EL PROYECTO--------------------------------------------------------------------------------------------------------*/
