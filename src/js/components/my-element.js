@@ -13,6 +13,7 @@ export class MyElement extends LitElement {
         super()
 
         this.count = 0
+        this.selectedCategory = 'all'
     }
     handleButtonClick(e) {
         const botones = this.shadowRoot.querySelectorAll('.boton-categoria');
@@ -20,8 +21,12 @@ export class MyElement extends LitElement {
             if (boton !== e.currentTarget) {
                 boton.classList.remove('active');
             }
+            this.selectedCategory = e.currentTarget.id
+            console.log(this.selectedCategory)
+            this.requestUpdate(); // Forzar la actualización de la vista
+            e.currentTarget.classList.add('active');
+
         });
-        e.currentTarget.classList.add('active');
     }
     
     static styles = css`
@@ -434,16 +439,16 @@ export class MyElement extends LitElement {
             <nav>
                 <ul class="menu">
                     <li>
-                        <button id="todos" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
+                        <button id="all" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
                     </li>
                     <li>
-                        <button id="abrigos"  class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
+                        <button id="coats"  class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
                     </li>
                     <li>
-                        <button id="camisetas" class="boton-menu boton-categoria " @click=${this.handleButtonClick} ><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
+                        <button id="shirts" class="boton-menu boton-categoria " @click=${this.handleButtonClick} ><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
                     </li>
                     <li>
-                        <button id="pantalones" class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
+                        <button id="jeans" class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
                     </li>
                     <li>
                         <a class="boton-menu boton-carrito" href="./carrito.html">
@@ -489,10 +494,11 @@ export class MyProducts extends LitElement {
       this.category = 'all';
     } 
   
-    updated(changedProperties) {
-      if (changedProperties.has('category')) {
-        this.loadProducts();
-      }
+    async updated(changedProperties) {
+        console.log(this.category)
+        if (changedProperties.has('category')) {
+            await this.loadProducts();
+        }
     }
   
     async loadProducts() {
