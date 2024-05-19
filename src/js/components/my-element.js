@@ -187,6 +187,7 @@ export class MyElement extends LitElement {
             gap: .25rem;
         }
 
+
         .producto-titulo {
             font-size: 1rem;
         }
@@ -306,14 +307,16 @@ export class MyElement extends LitElement {
         /*** MEDIA QUERIES ***/
 
         @media screen and (max-width: 850px) {
-            .contenedor-productos {
+            .products_container {
                 grid-template-columns: 1fr 1fr 1fr;
+                width: 100%
             }
         }
 
         @media screen and (max-width: 675px) {
-            .contenedor-productos {
+            .products_container {
                 grid-template-columns: 1fr 1fr;
+                width: 100%
             }
         }
 
@@ -354,8 +357,8 @@ export class MyElement extends LitElement {
                 padding: 2rem;
             }
 
-            .contenedor-productos {
-                grid-template-columns: 1fr 1fr;
+            .products_container {
+                grid-template-columns: 1fr 
             }
 
             .header-mobile {
@@ -406,7 +409,7 @@ export class MyElement extends LitElement {
 
 
         @media screen and (max-width: 400px) {
-            .contenedor-productos {
+            .products_container {
                 grid-template-columns: 1fr;
             }
         }
@@ -456,13 +459,15 @@ export class MyElement extends LitElement {
         </aside>
         <main>
             <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-            <div id="contenedor-productos" class="contenedor-productos">
+            <div id="products_container" class="products_container">
                 <!-- Esto se va a rellenar con JS -->
                 <my-products .category="${this.selectedCategory}"></my-products>
             </div>
         </main>
     </div>
     `
+    
+    
     }
 
 
