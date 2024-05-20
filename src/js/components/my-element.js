@@ -423,9 +423,8 @@ export class MyElement extends LitElement {
                         <button id="jeans" class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
                     </li>
                     <li>
-                        <a class="boton-menu boton-carrito" href="./carrito.html">
-                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
-                        </a>
+                    <button id="storage" class="boton-menu boton-categoria " @click=${this.handleButtonClick}> <i class="bi bi-cart-fill"></i>Carrito <span id="numerito" class="numerito">0</span>    
+                    </button>           
                     </li>
                 </ul>
             </nav>
@@ -435,7 +434,7 @@ export class MyElement extends LitElement {
             </footer>
         </aside>
         <main>
-            <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
+            <h2 class="titulo-principal" id="titulo-principal">${this.selectedCategory}</h2>
                 <!-- Esto se va a rellenar con JS -->
                 <my-products .category="${this.selectedCategory}"></my-products>
          
