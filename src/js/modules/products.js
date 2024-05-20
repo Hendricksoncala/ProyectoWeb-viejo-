@@ -36,51 +36,38 @@ export const getAllProducts = async () => {
         throw error;
     }
 };
+
 export const addProduct = async (data) => {
     try {
-        // Obtener el carrito existente
-        let carrito = await getTrolleyFromLocalStorage();
-        console.log(carrito);
-        // Agregar el nuevo producto al carrito
-        console.log(data)
-        carrito.carrito.push(data)
-        // Guardar el carrito actualizado en localStorage
+        let carrito = getTrolleyFromLocalStorage();
+        carrito.carrito.push(data);
         localStorage.setItem('carrito', JSON.stringify(carrito));
-
+        return carrito;
     } catch (error) {
-        // Manejar el error aquí
         console.error("Error al agregar producto al carrito:", error);
     }
-}
+};
+
 export const deleteProduct = async (data) => {
     try {
-        // Obtener el carrito existente
-        let carrito = await getTrolleyFromLocalStorage();
-        console.log(carrito);
-        // Agregar el nuevo producto al carrito
-        console.log(data)
+        let carrito = getTrolleyFromLocalStorage();
         const index = carrito.carrito.findIndex(product => product.id === data);
 
-        // Si se encontró el elemento, eliminarlo del array
         if (index !== -1) {
-            carrito.carrito.splice(index, 1); // Eliminar el elemento en la posición 'index'
+            carrito.carrito.splice(index, 1);
         }
-        // Volver a guardar el objeto actualizado en el localStorage
-        const res = localStorage.setItem('carrito', JSON.stringify(carrito));
-
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        return carrito;
     } catch (error) {
-        // Manejar el error aquí
-        console.error("Error al agregar producto al carrito:", error);
+        console.error("Error al eliminar producto del carrito:", error);
     }
-}
+};
+
 export const getTrolleyFromLocalStorage = () => {
     try {
         const carritoJSON = localStorage.getItem('carrito');
-        console.log(JSON.parse(carritoJSON));
-        return carritoJSON ? JSON.parse(carritoJSON) : { carrito: [] } ;
-
+        return carritoJSON ? JSON.parse(carritoJSON) : { carrito: [] };
     } catch (error) {
-        return { carrito: [] }
-
+        return { carrito: [] };
     }
-}
+};
