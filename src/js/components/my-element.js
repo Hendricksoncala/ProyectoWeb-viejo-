@@ -9,9 +9,6 @@ import {
 } from '../modules/products.js'
 
 export class MyElement extends LitElement {
-    static styles = css`
-        /* Estilos CSS aquí */
-    `;
 
     static properties = {
         carrito: { type: Array }
@@ -413,7 +410,7 @@ export class MyElement extends LitElement {
             flex-wrap: wrap;
             row-gap: 1rem;
         }
-        
+
 
     }
 `;
@@ -460,7 +457,7 @@ render() {
             <main>
                 <h2 class="titulo-principal" id="titulo-principal">${this.selectedCategory}</h2>
                 <my-products .category="${this.selectedCategory}" .carrito="${this.carrito}" @update-carrito="${this.updateCarrito}"></my-products>
-                <button class="delete_all">HOLAAAA</button>
+                
             </main>
         </div>
     `;

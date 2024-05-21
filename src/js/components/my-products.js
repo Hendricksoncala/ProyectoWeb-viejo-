@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { getAllProducts, addProduct, deleteProduct, getTrolleyFromLocalStorage, getAllJacket, getAllTshirt,deleteAllFromCart, getAllPants } from '../modules/products.js';
+import { getAllProducts, addProduct, deleteProduct, getTrolleyFromLocalStorage, getAllJacket, getAllTshirt, deleteAllFromCart, getAllPants } from '../modules/products.js';
 
 export class MyProducts extends LitElement {
     static properties = {
@@ -53,13 +53,31 @@ export class MyProducts extends LitElement {
         this.requestUpdate();
     }
 
+    async handleEmptyCart() {
+        const confirmed = window.confirm("¿Seguro que quieres comprar todo?");
+        if (confirmed) {
+            await deleteAllFromCart();
+            this.carrito = [];
+            this.dispatchEvent(new CustomEvent('update-carrito', { detail: this.carrito }));
+            this.requestUpdate();
+        }
+    }
 
-   render() {
+    async handleClearCart() {
+        const confirmed = window.confirm("¿Seguro que quieres vaciar el carrito?");
+        if (confirmed) {
+            await deleteAllFromCart();
+            this.carrito = [];
+            this.dispatchEvent(new CustomEvent('update-carrito', { detail: this.carrito }));
+            this.requestUpdate();
+        }
+    }
+
+    render() {
         const totalPrice = this.carrito.reduce((sum, product) => sum + product.precio, 0);
 
         return html`
             <div>
-
                 ${this.category === 'storage' ? html`
                     <div>
                         ${this.carrito.length === 0 ? html`<p>No hay productos en el carrito</p>` : html`
@@ -82,7 +100,11 @@ export class MyProducts extends LitElement {
                                     </div>
                                 `)}
                                 <div class="total">
-                                    Total: ${totalPrice}
+                                    <p>Total: $${totalPrice}</p>
+                                    <button class="delete_all" @click=${this.handleEmptyCart}>COMPRAR AHORA</button>
+                                    <div class="delete">
+                                        <button class="clear_cart" @click=${this.handleClearCart}>VACIAR CARRITO</button>
+                                    </div>
                                 </div>
                             </div>
                         `}
@@ -177,6 +199,45 @@ export class MyProducts extends LitElement {
             .card-button:hover {
                 border: 1px solid #ffcaa6;
                 background-color: #ffcaa6;
+            }
+            .total {
+                display: flex;
+                align-items: center;
+                background-color: #e2e2e2; /* Fondo gris claro */
+                border-radius: 1em;
+                overflow: hidden; /* Para asegurarnos de que el borde sea uniforme */
+
+            }
+            
+            .total p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1em; /* Espaciado alrededor del texto */
+                margin: 0; /* Eliminar márgenes */
+                font-size: 1.2em; /* Tamaño de fuente */
+                color:#174D4D; /* Color del texto */
+                background-color: #e2e2e2; /* Fondo gris claro */
+                border: none; /* Sin borde */
+            }
+            
+            .total button {
+                border: none;
+                background: #174D4D; /* Color morado */
+                color: white; /* Color del texto */
+                padding: 1em; /* Espaciado dentro del botón */
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+                font-size: 1em; /* Tamaño de fuente */
+
+            }
+            
+            .total button:hover {
+                background-color: #48e; /* Color morado oscuro para hover */
+            }
+            
+            .total p, .total button {
+                border-radius: 1em; /* Radio de borde para ambos elementos */
             }
             @media screen and (max-width: 1050px) {
                 .products_container {
