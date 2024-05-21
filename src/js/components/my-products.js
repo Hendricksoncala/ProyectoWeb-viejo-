@@ -67,7 +67,7 @@ export class MyProducts extends LitElement {
                                         </div>
                                     </div>
                                 `)}
-                                <div>
+                                <div class="total">
                                     Total: ${totalPrice}
                                 </div>
                             </div>

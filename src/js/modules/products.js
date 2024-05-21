@@ -5,6 +5,9 @@ export const getAllJacket = async () => {
 
 }
 
+export function clearTrolleyInLocalStorage() {
+    localStorage.setItem('trolley', JSON.stringify({ carrito: [] }));
+}
 export const getAllTshirt = async () => {
     let res = await fetch("http://localhost:3000/camiseta")
     let data = await res.json();
