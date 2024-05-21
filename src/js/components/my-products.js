@@ -1,11 +1,5 @@
-import {
-    getAllProducts,
-    addProduct,
-    deleteProduct,
-    getTrolleyFromLocalStorage
-} from '../modules/products.js';
-
 import { LitElement, css, html } from 'lit';
+import { getAllProducts, addProduct, deleteProduct, getTrolleyFromLocalStorage } from '../modules/products.js';
 
 export class MyProducts extends LitElement {
     static properties = {
@@ -34,23 +28,24 @@ export class MyProducts extends LitElement {
     async add_product(product) {
         let carritoActualizado = await addProduct(product);
         this.carrito = carritoActualizado.carrito;
+        this.dispatchEvent(new CustomEvent('update-carrito', { detail: this.carrito }));
         this.requestUpdate();
     }
 
     async delete_product(product) {
         let carritoActualizado = await deleteProduct(product.id);
         this.carrito = carritoActualizado.carrito;
+        this.dispatchEvent(new CustomEvent('update-carrito', { detail: this.carrito }));
         this.requestUpdate();
     }
 
-    render() {
+
+   render() {
         const totalPrice = this.carrito.reduce((sum, product) => sum + product.precio, 0);
 
         return html`
             <div>
-                <div>
-                    Carrito: ${this.carrito.length}
-                </div>
+
                 ${this.category === 'storage' ? html`
                     <div>
                         ${this.carrito.length === 0 ? html`<p>No hay productos en el carrito</p>` : html`

@@ -1,5 +1,9 @@
 import { LitElement, css, html } from 'lit'
 import { MyProducts } from './my-products'
+import{
+    getTrolleyFromLocalStorage
+} from '../modules/products.js'
+
 // import {loadlink} from "/src/charge_info.js"
 export class MyElement extends LitElement {
     constructor() {
@@ -7,6 +11,7 @@ export class MyElement extends LitElement {
 
         this.count = 0
         this.selectedCategory = 'all'
+        this.carrito = getTrolleyFromLocalStorage().carrito;
     }
     handleButtonClick(e) {
         const botones = this.shadowRoot.querySelectorAll('.boton-categoria');
@@ -14,12 +19,16 @@ export class MyElement extends LitElement {
             if (boton !== e.currentTarget) {
                 boton.classList.remove('active');
             }
-            this.selectedCategory = e.currentTarget.id
-            console.log(this.selectedCategory)
-            this.requestUpdate(); // Forzar la actualizaciÃ³n de la vista
-            e.currentTarget.classList.add('active');
-
         });
+        e.currentTarget.classList.add('active');
+        this.selectedCategory = e.currentTarget.id;
+        console.log(this.selectedCategory);
+        this.requestUpdate(); // Forzar la actualización de la vista
+    }
+
+    updateCarrito(e) {
+        this.carrito = e.detail;
+        this.requestUpdate(); // Forzar la actualización de la vista
     }
 
     static styles = css`
@@ -392,60 +401,52 @@ export class MyElement extends LitElement {
     }
 `;
 
-    render() {
-        return html`
-    <div class="wrapper">
-        <header class="header-mobile">
-            <h1 class="logo">CarpiShop</h1>
-            <button class="open-menu" id="open-menu">
-                <i class="bi bi-list"></i>
-            </button>
-        </header>
-        <aside>
-            <button class="close-menu" id="close-menu">
-                <i class="bi bi-x"></i>
-            </button>
-            <header>
-                <h1 class="logo">CampusShop</h1>
+render() {
+    return html`
+        <div class="wrapper">
+            <header class="header-mobile">
+                <h1 class="logo">CarpiShop</h1>
+                <button class="open-menu" id="open-menu">
+                    <i class="bi bi-list"></i>
+                </button>
             </header>
-            <nav>
-                <ul class="menu">
-                    <li>
-                        <button id="all" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
-                    </li>
-                    <li>
-                        <button id="coats"  class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
-                    </li>
-                    <li>
-                        <button id="shirts" class="boton-menu boton-categoria " @click=${this.handleButtonClick} ><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
-                    </li>
-                    <li>
-                        <button id="jeans" class="boton-menu boton-categoria " @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
-                    </li>
-                    <li>
-                    <button id="storage" class="boton-menu boton-categoria " @click=${this.handleButtonClick}> <i class="bi bi-cart-fill"></i>Carrito <span id="numerito" class="numerito">0</span>    
-                    </button>           
-                    </li>
-                </ul>
-            </nav>
-            <footer>
-                <p>${this.loadlink}</p>
-                <p class="texto-footer">Â© CampusShop 2024</p>
-            </footer>
-        </aside>
-        <main>
-            <h2 class="titulo-principal" id="titulo-principal">${this.selectedCategory}</h2>
-                <!-- Esto se va a rellenar con JS -->
-                <my-products .category="${this.selectedCategory}"></my-products>
-         
-        </main>
-    </div>
-    `
-
-
-    }
-
-
+            <aside>
+                <button class="close-menu" id="close-menu">
+                    <i class="bi bi-x"></i>
+                </button>
+                <header>
+                    <h1 class="logo">CampusShop</h1>
+                </header>
+                <nav>
+                    <ul class="menu">
+                        <li>
+                            <button id="all" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
+                        </li>
+                        <li>
+                            <button id="coats" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
+                        </li>
+                        <li>
+                            <button id="shirts" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
+                        </li>
+                        <li>
+                            <button id="jeans" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
+                        </li>
+                        <li>
+                            <button id="storage" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-cart-fill"></i> CARRITO <span id="numerito" class="numerito">${this.carrito.length}</span></button>
+                        </li>
+                    </ul>
+                </nav>
+                <footer>
+                    <p>© CampusShop 2024</p>
+                </footer>
+            </aside>
+            <main>
+                <h2 class="titulo-principal" id="titulo-principal">${this.selectedCategory}</h2>
+                <my-products .category="${this.selectedCategory}" .carrito="${this.carrito}" @update-carrito="${this.updateCarrito}"></my-products>
+            </main>
+        </div>
+    `;
+}
 }
 
 window.customElements.define('my-element', MyElement)
