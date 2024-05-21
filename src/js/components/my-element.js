@@ -1,31 +1,53 @@
+
 import { LitElement, css, html } from 'lit'
 import { MyProducts } from './my-products'
-import{
+import {
+    getAllJacket,
+    getAllTshirt,
+    getAllPants,
     getTrolleyFromLocalStorage
 } from '../modules/products.js'
 
-// import {loadlink} from "/src/charge_info.js"
 export class MyElement extends LitElement {
+    static styles = css`
+        /* Estilos CSS aquí */
+    `;
+
+    static properties = {
+        carrito: { type: Array }
+    };
+
     constructor() {
-        super()
-
-        this.count = 0
-        this.selectedCategory = 'all'
+        super();
+        this.selectedCategory = 'all';
         this.carrito = getTrolleyFromLocalStorage().carrito;
-    }
-    handleButtonClick(e) {
-        const botones = this.shadowRoot.querySelectorAll('.boton-categoria');
-        botones.forEach(boton => {
-            if (boton !== e.currentTarget) {
-                boton.classList.remove('active');
-            }
-        });
-        e.currentTarget.classList.add('active');
-        this.selectedCategory = e.currentTarget.id;
-        console.log(this.selectedCategory);
-        this.requestUpdate(); // Forzar la actualización de la vista
+        this.productos = []; // Aquí se almacenarán los productos cargados
     }
 
+    async handleButtonClick(e) {
+        const categoria = e.currentTarget.id;
+        this.selectedCategory = categoria;
+        this.productos = [];
+
+        try {
+            if (categoria === 'coats') {
+                this.productos = await getAllJacket();
+            } else if (categoria === 'shirts') {
+                this.productos = await getAllTshirt();
+            } else if (categoria === 'jeans') {
+                this.productos = await getAllPants();
+            }
+        } catch (error) {
+            console.error("Error al cargar los productos:", error);
+        }
+
+        this.requestUpdate();
+    }
+
+    async updateCarrito(e) {
+        this.carrito = e.detail;
+        await this.requestUpdate();
+    }
     static styles = css`
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
     :root {
@@ -396,52 +418,53 @@ export class MyElement extends LitElement {
     }
 `;
 
-        render() {
-        return html`
-            <div class="wrapper">
-                <header class="header-mobile">
-                    <h1 class="logo">CarpiShop</h1>
-                    <button class="open-menu" id="open-menu">
-                        <i class="bi bi-list"></i>
-                    </button>
+render() {
+    return html`
+        <div class="wrapper">
+            <header class="header-mobile">
+                <h1 class="logo">CarpiShop</h1>
+                <button class="open-menu" id="open-menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </header>
+            <aside>
+                <button class="close-menu" id="close-menu">
+                    <i class="bi bi-x"></i>
+                </button>
+                <header>
+                    <h1 class="logo">CampusShop</h1>
                 </header>
-                <aside>
-                    <button class="close-menu" id="close-menu">
-                        <i class="bi bi-x"></i>
-                    </button>
-                    <header>
-                        <h1 class="logo">CampusShop</h1>
-                    </header>
-                    <nav>
-                        <ul class="menu">
-                            <li>
-                                <button id="all" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
-                            </li>
-                            <li>
-                                <button id="coats" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
-                            </li>
-                            <li>
-                                <button id="shirts" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
-                            </li>
-                            <li>
-                                <button id="jeans" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
-                            </li>
-                            <li>
-                                <button id="storage" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-cart-fill"></i> CARRITO <span id="numerito" class="numerito">${this.carrito.length}</span></button>
-                            </li>
-                        </ul>
-                    </nav>
-                    <footer>
-                        <p>© CampusShop 2024</p>
-                    </footer>
-                </aside>
-                <main>
-                    <h2 class="titulo-principal" id="titulo-principal">${this.selectedCategory}</h2>
-                    <my-products .category="${this.selectedCategory}" .carrito="${this.carrito}" @update-carrito="${this.updateCarrito}"></my-products>
-                </main>
-            </div>
-        `;
-    }
+                <nav>
+                    <ul class="menu">
+                        <li>
+                            <button id="all" class="boton-menu boton-categoria active" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
+                        </li>
+                        <li>
+                            <button id="coats" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Abrigos</button>
+                        </li>
+                        <li>
+                            <button id="shirts" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Camisetas</button>
+                        </li>
+                        <li>
+                            <button id="jeans" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
+                        </li>
+                        <li>
+                            <button id="storage" class="boton-menu boton-categoria" @click=${this.handleButtonClick}><i class="bi bi-cart-fill"></i> CARRITO <span id="numerito" class="numerito">${this.carrito.length}</span></button>
+                        </li>
+                    </ul>
+                </nav>
+                <footer>
+                    <p>© CampusShop 2024</p>
+                </footer>
+            </aside>
+            <main>
+                <h2 class="titulo-principal" id="titulo-principal">${this.selectedCategory}</h2>
+                <my-products .category="${this.selectedCategory}" .carrito="${this.carrito}" @update-carrito="${this.updateCarrito}"></my-products>
+                <button class="delete_all">HOLAAAA</button>
+            </main>
+        </div>
+    `;
+}
 }
 
-window.customElements.define('my-element', MyElement)
+customElements.define('my-element', MyElement)

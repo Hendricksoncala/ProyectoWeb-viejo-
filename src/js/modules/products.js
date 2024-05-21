@@ -74,3 +74,11 @@ export const getTrolleyFromLocalStorage = () => {
         return { carrito: [] };
     }
 };
+
+export const deleteAllFromCart = async () => {
+    try {
+        localStorage.removeItem('carrito');
+    } catch (error) {
+        console.error("Error al eliminar todos los productos del carrito:", error);
+    }
+}

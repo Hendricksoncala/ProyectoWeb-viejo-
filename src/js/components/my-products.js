@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { getAllProducts, addProduct, deleteProduct, getTrolleyFromLocalStorage } from '../modules/products.js';
+import { getAllProducts, addProduct, deleteProduct, getTrolleyFromLocalStorage, getAllJacket, getAllTshirt,deleteAllFromCart, getAllPants } from '../modules/products.js';
 
 export class MyProducts extends LitElement {
     static properties = {
@@ -22,7 +22,21 @@ export class MyProducts extends LitElement {
     }
 
     async loadProducts() {
-        this.products = await getAllProducts();
+        switch (this.category) {
+            case 'coats':
+                this.products = await getAllJacket();
+                break;
+            case 'shirts':
+                this.products = await getAllTshirt();
+                break;
+            case 'jeans':
+                this.products = await getAllPants();
+                break;
+            case 'storage':
+                break;
+            default:
+                this.products = await getAllProducts();
+        }
     }
 
     async add_product(product) {
