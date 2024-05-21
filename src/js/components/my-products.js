@@ -102,9 +102,10 @@ export class MyProducts extends LitElement {
                                 <div class="total">
                                     <p>Total: $${totalPrice}</p>
                                     <button class="delete_all" @click=${this.handleEmptyCart}>COMPRAR AHORA</button>
-                                    <div class="delete">
-                                        <button class="clear_cart" @click=${this.handleClearCart}>VACIAR CARRITO</button>
-                                    </div>
+
+                                </div>
+                                <div class="delete">
+                                    <button class="clear_cart" @click=${this.handleClearCart}>VACIAR CARRITO</button>
                                 </div>
                             </div>
                         `}
@@ -239,18 +240,49 @@ export class MyProducts extends LitElement {
             .total p, .total button {
                 border-radius: 1em; /* Radio de borde para ambos elementos */
             }
-            @media screen and (max-width: 1050px) {
-                .products_container {
-                    grid-template-columns: 1fr 1fr;
-                    width: 100%;
-                }
+
+
+
+            .delete {
+                display: flex;
+                align-items: center;
+                background-color: #e2e2e2; /* Fondo gris claro */
+                border-radius: 1em;
+                overflow: hidden; /* Para asegurarnos de que el borde sea uniforme */
+
             }
-            @media screen and (max-width: 550px) and (min-width: 300px) {
-                .products_container {
-                    grid-template-columns: 1fr;
-                    width: 100%;
-                }
+            
+            .delete p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1em; /* Espaciado alrededor del texto */
+                margin: 0; /* Eliminar márgenes */
+                font-size: 1.2em; /* Tamaño de fuente */
+                color:#991B1B; /* Color del texto */
+                background-color: #e2e2e2; /* Fondo gris claro */
+                border: none; /* Sin borde */
             }
+            
+            .delete button {
+                border: none;
+                background: #991B1B; /* Color rojo */
+                color: white; /* Color del texto */
+                padding: 1em; /* Espaciado dentro del botón */
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+                font-size: 1em; /* Tamaño de fuente */
+
+            }
+            
+            .delete button:hover {
+                background-color: #FF0000; /* Color rojo oscuro para hover */
+            }
+            
+            .delete p, .delete button {
+                border-radius: 1em; /* Radio de borde para ambos elementos */
+            }
+
         `;
     }
 }
