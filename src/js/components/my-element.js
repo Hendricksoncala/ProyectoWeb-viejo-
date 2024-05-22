@@ -352,18 +352,8 @@ export class MyElement extends LitElement {
         display: flex;
         flex-direction: column;
     }
+    
 
-    aside {
-        position: fixed;
-        z-index: 9;
-        background-color: #48e;
-        left: 0;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
-        transform: translateX(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: .2s;
-    }
 
     .aside-visible {
         transform: translateX(0);
