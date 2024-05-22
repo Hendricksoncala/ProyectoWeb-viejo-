@@ -1,4 +1,5 @@
 import { LitElement, css, html } from 'lit';
+
 import { getAllProducts, addProduct, deleteProduct, getTrolleyFromLocalStorage, getAllJacket, getAllTshirt, deleteAllFromCart, getAllPants } from '../modules/products.js';
 
 export class MyProducts extends LitElement {
@@ -282,7 +283,23 @@ export class MyProducts extends LitElement {
             .delete p, .delete button {
                 border-radius: 1em; /* Radio de borde para ambos elementos */
             }
-
+            @media screen and (max-width: 400px){
+                .products_container {
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 1rem;
+                    align-items: center;
+                }
+            }
+        
+            @media screen and (max-width: 600px){
+                .products_container {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem;
+                    align-items: center;
+                }
+            }
         `;
     }
 }
