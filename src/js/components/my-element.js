@@ -22,6 +22,17 @@ export class MyElement extends LitElement {
     }
 
     async handleButtonClick(e) {
+        const botones = this.shadowRoot.querySelectorAll('.boton-categoria');
+        botones.forEach(boton => {
+            if (boton !== e.currentTarget){
+                boton.classList.remove('active')
+            }
+            this.selectedCategory = e.currentTarget.id
+            console.log(this.selectedCategory)
+            this.requestUpdate()
+            e.currentTarget.classList.add('active')
+        });
+
         const categoria = e.currentTarget.id;
         this.selectedCategory = categoria;
         this.productos = [];
